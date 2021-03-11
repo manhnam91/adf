@@ -6,10 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "namnm-demo-dev"
-		},
-		"namnmdemodev_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'namnmdemodev'"
 		}
 	},
 	"variables": {
@@ -65,60 +61,19 @@
 						"inputs": [
 							{
 								"referenceName": "emptxt",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "emptxt",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
 				],
 				"annotations": [],
 				"lastPublishTime": "2021-03-11T04:49:16Z"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/emptxt')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/emptxt')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "namnmdemodev",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Binary",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "emp.txt",
-						"folderPath": "input",
-						"container": "adftutorial"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/namnmdemodev')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/namnmdemodev')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('namnmdemodev_connectionString')]"
-				}
 			},
 			"dependsOn": []
 		}
