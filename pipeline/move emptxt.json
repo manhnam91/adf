@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "test-ci-cd",
+				"name": "namnm-03-15",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
